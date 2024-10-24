@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:DemoKystova"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="80"></Setter>
+        </Style>
     </Application.Resources>
 </Application>
