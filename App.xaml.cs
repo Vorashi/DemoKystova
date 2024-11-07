@@ -13,5 +13,13 @@ namespace DemoKystova
     /// </summary>
     public partial class App : Application
     {
+        private static DemoEntities _context;
+
+        public static DemoEntities GetContext()
+        {
+            if (_context == null)
+                _context = new DemoEntities();
+            return _context;
+        }
     }
 }

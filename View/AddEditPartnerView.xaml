@@ -1,0 +1,118 @@
+﻿<Window x:Class="DemoKystova.View.AddEditPartnerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoKystova.View"
+        mc:Ignorable="d"
+        Title="Партнеры - добавление и редактирование" 
+        Height="480" Width="500"
+        MinHeight="480" MinWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MaxHeight="100"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" Background="#67BA80">
+            <Image Source="\Resources\Мастер пол.png" 
+                DockPanel.Dock="Left" 
+                Margin="10" 
+                VerticalAlignment="Center"/>
+            <TextBlock Text="Мастер пол"
+                       FontSize="28"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"/>
+        </DockPanel>
+        <!--Колонка с полями для заполнения-->
+        <StackPanel Grid.Row="1" Margin="15">
+            <DockPanel Margin="0,10,0,0">
+                <TextBlock DockPanel.Dock="Left"
+                           Text="Наименование"
+                           Margin="0,0,5,0"
+                           Width="160"/>
+                <TextBox Text="{Binding name}" MaxLength="10"/>
+            </DockPanel>
+
+            <DockPanel Margin="0,10,0,0">
+                <TextBlock DockPanel.Dock="Left"
+                           Text="Тип партнера"
+                           Margin="0,0,5,0"
+                           Width="160"/>
+                <ComboBox x:Name="TypeComboBox" SelectedItem="{Binding type}">
+                    <ComboBoxItem>ЗАО</ComboBoxItem>
+                    <ComboBoxItem>ООО</ComboBoxItem>
+                    <ComboBoxItem>ПАО</ComboBoxItem>
+                    <ComboBoxItem>ОАО</ComboBoxItem>
+                </ComboBox>
+            </DockPanel>
+
+            <DockPanel Margin="0,10,0,0">
+                <TextBlock DockPanel.Dock="Left"
+                           Text="Рейтинг компании"
+                           Margin="0,0,5,0"
+                           Width="160"/>
+                <TextBox Text="{Binding rating}" MaxLength="10"/>
+            </DockPanel>
+
+            <DockPanel Margin="0,10,0,0">
+                <TextBlock DockPanel.Dock="Left"
+                           Text="Арес компании"
+                           Margin="0,0,5,0"
+                           Width="160"/>
+                <TextBox Text="{Binding address}" MaxLength="10"/>
+            </DockPanel>
+
+            <DockPanel Margin="0,10,0,0">
+                <TextBlock DockPanel.Dock="Left"
+                           Text="ФИО Директора"
+                           Margin="0,0,5,0"
+                           Width="160"/>
+                <TextBox Text="{Binding director}" MaxLength="10"/>
+            </DockPanel>
+
+            <DockPanel Margin="0,10,0,0">
+                <TextBlock DockPanel.Dock="Left"
+                           Text="Телефон компании"
+                           Margin="0,0,5,0"
+                           Width="160"/>
+                <TextBox Text="{Binding phone}" MaxLength="10"/>
+            </DockPanel>
+
+            <DockPanel Margin="0,10,0,0">
+                <TextBlock DockPanel.Dock="Left"
+                           Text="Email компании"
+                           Margin="0,0,5,0"
+                           Width="160"/>
+                <TextBox Text="{Binding mail}" MaxLength="10"/>
+            </DockPanel>
+
+            <DockPanel Margin="0,10,0,0">
+                <TextBlock DockPanel.Dock="Left"
+                           Text="ИНН"
+                           Margin="0,0,5,0"
+                           Width="160"/>
+                <TextBox Text="{Binding inn}" MaxLength="10"/>
+            </DockPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="0,20,15,0">
+                <Button x:Name="DeleteBtn"
+                        Width="90"
+                        Content="Очистить"
+                        Visibility="Visible"
+                        Margin="0,0,10,0"
+                        Click="DeleteBtn_Click"/>
+                <Button x:Name="SaveBtn"
+                        Width="100"
+                        Content="Сохранить"
+                        Click="SaveBtn_Click"/>
+                <Button x:Name="BackBtn"
+                        Width="100"
+                        Content="Назад"
+                        Margin="10,0,0,0"
+                        Click="BackBtn_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
