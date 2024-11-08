@@ -6,16 +6,108 @@
         xmlns:local="clr-namespace:DemoKystova"
         mc:Ignorable="d"
         MinHeight="400" MinWidth="600" WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Мастер Пол - Партнеры" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="78*"></RowDefinition>
-            <RowDefinition Height="277*"></RowDefinition>
-            <RowDefinition Height="78*"></RowDefinition>
+            <RowDefinition Height="69*" MaxHeight="100"/>
+            <RowDefinition Height="350*"/>
+            <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0"
+           Background="AliceBlue">
+            <Image Source="Resources\Мастер пол.png"
+                DockPanel.Dock="Left"
+                Margin="10"
+                VerticalAlignment="Center"/>
+            <TextBlock Text="Мастер пол"
+               FontSize="28"
+               FontWeight="Bold"
+               VerticalAlignment="Center"/>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="AddBtn"
+                       Width="180"
+                       Content="Добавить продукт"
+                       Margin="10,10"    
+                       Click="AddBtn_Click"/>
+                <!--Collapsed - элемент не виден и не участвует в компоновке.-->
+                <Button x:Name="EditBtn"
+                        Grid.Column="2"
+                        Content="Редактировать"
+                        Margin="0,0,15,0"
+                        Padding="0"
+                        Visibility="Collapsed" 
+                        HorizontalAlignment="Right"
+                        Click="EditBtn_Click"/>
+            </StackPanel>
+
+        </DockPanel>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15"/>
+                <!--Отступ сверху и снизу, и всё пространство по середине-->
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="15"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15"/>
+                <!--Отступ справа и слева, и всё пространство по середине-->
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="15"/>
+                
+            </Grid.ColumnDefinitions>
+            <ListView x:Name="PartnerListView" Grid.Row="1" Grid.Column="1" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                      SelectionChanged="PartnerListView_SelectionChanged">
+                <ListView.ItemContainerStyle>
+                    <!--Стиль для контейнера (1 партнер)-->
+                    <Style TargetType="ListViewItem"> 
+                        <Setter Property="HorizontalContentAlignment" 
+                            Value="Stretch"/>
+                        <!--Растянуть по горизонтали-->
+                        <Setter Property="Margin" Value="0,0,0,10"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="1"
+                            BorderBrush="Black">
+                            <Grid Margin="10"
+                                HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="8*"/>
+                                    <ColumnDefinition Width="*" MaxWidth="170" MinWidth="142"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!--Заполнение колонок одного партнера-->
+                                <StackPanel Grid.Column="0" 
+                                    Margin="5, 0"
+                                    Orientation="Vertical"
+                                    VerticalAlignment="Stretch">
+                                    <TextBlock Text="{Binding TypeAndName}" 
+                                        TextWrapping="Wrap"/>
+                                    <!--Перенос длинного текста на след строку-->
+                                    <TextBlock Text="{Binding director}"
+                                        TextWrapping="Wrap"/>
+                                    <TextBlock Text="{Binding phone}"
+                                        TextWrapping="Wrap"/>
+                                    <TextBlock Text="{Binding RatingString}" 
+                                        TextWrapping="Wrap"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1" 
+                                    Margin="5, 0"
+                                    Orientation="Vertical"
+                                    VerticalAlignment="Stretch">
+                                    <TextBlock Text="{Binding Discount}" 
+                                        TextWrapping="Wrap"/>
+                                </StackPanel>
+
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </Grid>
     </Grid>
 </Window>
