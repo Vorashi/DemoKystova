@@ -13,6 +13,7 @@
             <RowDefinition Height="350*"/>
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
+        
         <DockPanel Grid.Row="0"
            Background="#F4E8D3">
             <Image Source="Resources\Мастер пол.png"
@@ -23,6 +24,7 @@
                FontSize="28"
                FontWeight="Bold"
                VerticalAlignment="Center"/>
+            
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button x:Name="AddBtn"
                        Width="180"
@@ -39,22 +41,25 @@
                         HorizontalAlignment="Right"
                         Click="EditBtn_Click"/>
             </StackPanel>
-
+            
         </DockPanel>
+        
         <Grid Grid.Row="1">
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="15"/>
                 <!--Отступ сверху и снизу, и всё пространство по середине-->
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="15"/>
             </Grid.RowDefinitions>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15"/>
                 <!--Отступ справа и слева, и всё пространство по середине-->
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="15"/>
-                
             </Grid.ColumnDefinitions>
+            
             <ListView x:Name="PartnerListView" Grid.Row="1" Grid.Column="1" 
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                       SelectionChanged="PartnerListView_SelectionChanged">

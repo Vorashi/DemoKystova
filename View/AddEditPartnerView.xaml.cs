@@ -53,7 +53,14 @@ namespace DemoKystova.View
 
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            Name.Clear();
+            Type.Clear();
+            Rating.Clear();
+            Address.Clear();
+            Director.Clear();
+            Phone.Clear();
+            Mail.Clear();
+            Inn.Clear();
         }
     }
 }

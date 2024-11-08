@@ -24,7 +24,7 @@
                        VerticalAlignment="Center"/>
         </DockPanel>
         <!--Колонка с полями для заполнения-->
-        <StackPanel Grid.Row="1" Margin="15" x:Name="StackBro">
+        <StackPanel Grid.Row="1" Margin="15">
             <DockPanel Margin="0,10,0,0">
                 <TextBlock DockPanel.Dock="Left"
                            Text="Наименование"
@@ -38,7 +38,7 @@
                            Text="Тип партнера"
                            Margin="0,0,5,0"
                            Width="160"/>
-                <TextBox Text="{Binding type}"/>
+                <TextBox Text="{Binding type}" x:Name="Type"/>
                 
             </DockPanel>
 
@@ -47,7 +47,7 @@
                            Text="Рейтинг компании"
                            Margin="0,0,5,0"
                            Width="160"/>
-                <TextBox Text="{Binding rating}"/>
+                <TextBox Text="{Binding rating}" x:Name="Rating"/>
             </DockPanel>
 
             <DockPanel Margin="0,10,0,0">
@@ -55,7 +55,7 @@
                            Text="Арес компании"
                            Margin="0,0,5,0"
                            Width="160"/>
-                <TextBox Text="{Binding address}"/>
+                <TextBox Text="{Binding address}" x:Name="Address"/>
             </DockPanel>
 
             <DockPanel Margin="0,10,0,0">
@@ -63,7 +63,7 @@
                            Text="ФИО Директора"
                            Margin="0,0,5,0"
                            Width="160"/>
-                <TextBox Text="{Binding director}"/>
+                <TextBox Text="{Binding director}" x:Name="Director"/>
             </DockPanel>
 
             <DockPanel Margin="0,10,0,0">
@@ -71,7 +71,7 @@
                            Text="Телефон компании"
                            Margin="0,0,5,0"
                            Width="160"/>
-                <TextBox Text="{Binding phone}"/>
+                <TextBox Text="{Binding phone}" x:Name="Phone"/>
             </DockPanel>
 
             <DockPanel Margin="0,10,0,0">
@@ -79,7 +79,7 @@
                            Text="Email компании"
                            Margin="0,0,5,0"
                            Width="160"/>
-                <TextBox Text="{Binding mail}"/>
+                <TextBox Text="{Binding mail}" x:Name="Mail"/>
             </DockPanel>
 
             <DockPanel Margin="0,10,0,0">
@@ -87,7 +87,7 @@
                            Text="ИНН"
                            Margin="0,0,5,0"
                            Width="160"/>
-                <TextBox Text="{Binding inn}"/>
+                <TextBox Text="{Binding inn}" x:Name="Inn"/>
             </DockPanel>
 
             <StackPanel Orientation="Horizontal"
