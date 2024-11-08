@@ -21,7 +21,7 @@ namespace DemoKystova
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly IEnumerable<Partner> _parnersList; //создаем поле списка партнеров
+        private IEnumerable<Partner> _parnersList; //создаем поле списка партнеров
         private Partner _partner;
         public MainWindow()
         {
