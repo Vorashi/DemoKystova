@@ -19,9 +19,12 @@ namespace DemoKystova.View
     /// </summary>
     public partial class AddEditPartnerView : Window
     {
+        Partner _newPartner;
         public AddEditPartnerView()
         {
             InitializeComponent();
+            _newPartner = new Partner();
+            DataContext = _newPartner;
         }
 
         public AddEditPartnerView(Partner partner)
@@ -37,12 +40,20 @@ namespace DemoKystova.View
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                App.GetContext().SaveChanges();
+                MessageBox.Show("Успешно сохранено");
+            }
+            catch
+            {
+                MessageBox.Show("Не удалось сохранить");
+            }
         }
 
-        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
