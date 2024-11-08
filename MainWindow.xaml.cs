@@ -49,6 +49,8 @@ namespace DemoKystova
             AddWindow.ShowDialog();
         }
 
+
+
         private void PartnerListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (PartnerListView.SelectedItems.Count > 0)
