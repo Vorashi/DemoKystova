@@ -62,7 +62,7 @@
             
             <ListView x:Name="PartnerListView" Grid.Row="1" Grid.Column="1" 
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                      SelectionChanged="PartnerListView_SelectionChanged">
+                      SelectionChanged="PartnerListView_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}">
                 <ListView.ItemContainerStyle>
                     <!--Стиль для контейнера (1 партнер)-->
                     <Style TargetType="ListViewItem"> 

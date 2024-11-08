@@ -27,9 +27,8 @@ namespace DemoKystova
         {
             InitializeComponent();
 
-            _parnersList = App.GetContext().Partner.ToList();
             // Заполнение ListView данными.
-            PartnerListView.ItemsSource = _parnersList;
+            UpdateListView(PartnerListView);
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
@@ -41,15 +40,21 @@ namespace DemoKystova
             }
             AddEditPartnerView EditWindow = new AddEditPartnerView(_partner);
             EditWindow.ShowDialog();
+            UpdateListView(PartnerListView);
         }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
             AddEditPartnerView AddWindow = new AddEditPartnerView();
             AddWindow.ShowDialog();
+            UpdateListView(PartnerListView);
         }
 
-
+        private void UpdateListView(ListView lst)
+        {
+            _parnersList = App.GetContext().Partner.ToList();
+            lst.ItemsSource = _parnersList;
+        }
 
         private void PartnerListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

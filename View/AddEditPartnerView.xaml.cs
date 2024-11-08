@@ -19,18 +19,19 @@ namespace DemoKystova.View
     /// </summary>
     public partial class AddEditPartnerView : Window
     {
-        Partner _newPartner;
-        public AddEditPartnerView()
+        private Partner _newPartner;
+        private DemoEntities _context;
+        public AddEditPartnerView(Partner partner=null)
         {
             InitializeComponent();
+            _context = App.GetContext();
+            if (partner != null)
+            {
+                DataContext = partner;
+                return;
+            }
             _newPartner = new Partner();
             DataContext = _newPartner;
-        }
-
-        public AddEditPartnerView(Partner partner)
-        {
-            InitializeComponent();
-            DataContext = partner;
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -42,7 +43,9 @@ namespace DemoKystova.View
         {
             try
             {
-                App.GetContext().SaveChanges();
+                if( _newPartner != null ) 
+                    _context.Partner.Add(_newPartner);
+                _context.SaveChanges();
                 MessageBox.Show("Успешно сохранено");
             }
             catch
