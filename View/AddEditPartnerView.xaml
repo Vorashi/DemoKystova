@@ -13,7 +13,7 @@
             <RowDefinition Height="*" MaxHeight="100"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0" Background="#67BA80">
+        <DockPanel Grid.Row="0" Background="#F4E8D3">
             <Image Source="\Resources\Мастер пол.png" 
                 DockPanel.Dock="Left" 
                 Margin="10" 
@@ -24,13 +24,13 @@
                        VerticalAlignment="Center"/>
         </DockPanel>
         <!--Колонка с полями для заполнения-->
-        <StackPanel Grid.Row="1" Margin="15">
+        <StackPanel Grid.Row="1" Margin="15" x:Name="StackBro">
             <DockPanel Margin="0,10,0,0">
                 <TextBlock DockPanel.Dock="Left"
                            Text="Наименование"
                            Margin="0,0,5,0"
                            Width="160"/>
-                <TextBox Text="{Binding name}" MaxLength="10"/>
+                <TextBox Text="{Binding name}" x:Name="Name"/>
             </DockPanel>
 
             <DockPanel Margin="0,10,0,0">
@@ -38,12 +38,7 @@
                            Text="Тип партнера"
                            Margin="0,0,5,0"
                            Width="160"/>
-                <ComboBox x:Name="TypeComboBox" SelectedItem="{Binding type}">
-                    <ComboBoxItem>ЗАО</ComboBoxItem>
-                    <ComboBoxItem>ООО</ComboBoxItem>
-                    <ComboBoxItem>ПАО</ComboBoxItem>
-                    <ComboBoxItem>ОАО</ComboBoxItem>
-                </ComboBox>
+                
             </DockPanel>
 
             <DockPanel Margin="0,10,0,0">

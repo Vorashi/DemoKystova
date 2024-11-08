@@ -21,7 +21,7 @@ namespace DemoKystova
     /// </summary>
     public partial class MainWindow : Window
     {
-        private IEnumerable<Partner> _parnersList; //создаем поле списка партнеров
+        private readonly IEnumerable<Partner> _parnersList; //создаем поле списка партнеров
         private Partner _partner;
         public MainWindow()
         {
@@ -30,7 +30,6 @@ namespace DemoKystova
             _parnersList = App.GetContext().Partner.ToList();
             // Заполнение ListView данными.
             PartnerListView.ItemsSource = _parnersList;
-
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)

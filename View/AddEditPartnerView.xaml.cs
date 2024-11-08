@@ -42,7 +42,7 @@ namespace DemoKystova.View
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

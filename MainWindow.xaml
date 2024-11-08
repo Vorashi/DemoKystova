@@ -14,7 +14,7 @@
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0"
-           Background="AliceBlue">
+           Background="#F4E8D3">
             <Image Source="Resources\Мастер пол.png"
                 DockPanel.Dock="Left"
                 Margin="10"
