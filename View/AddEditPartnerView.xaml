@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:DemoKystova.View"
         mc:Ignorable="d"
         Title="Партнеры - добавление и редактирование" 
-        Height="520" Width="500"
-        MinHeight="520" MinWidth="500">
+        Height="530" Width="500"
+        MinHeight="530" MinWidth="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" MaxHeight="100"/>
@@ -38,7 +38,9 @@
                            Text="Тип партнера"
                            Margin="0,0,5,0"
                            Width="160"/>
-                <TextBox Text="{Binding type}" x:Name="Type"/>
+                <ComboBox x:Name="TypeComboBox" SelectedItem="{Binding type}"/>
+
+                <!--<TextBox Text="{Binding type}" x:Name="Type"/>-->
                 
             </DockPanel>
 

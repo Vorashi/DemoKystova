@@ -76,6 +76,7 @@
     <Compile Include="MaterialType.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Module4.cs" />
     <Compile Include="Model\Partner.cs" />
     <Compile Include="Partner.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
@@ -94,6 +95,9 @@
     </Compile>
     <Compile Include="View\AddEditPartnerView.xaml.cs">
       <DependentUpon>AddEditPartnerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HistoryProductsSalesView.xaml.cs">
+      <DependentUpon>HistoryProductsSalesView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +122,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AddEditPartnerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HistoryProductsSalesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

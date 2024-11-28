@@ -11,7 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="69*" MaxHeight="100"/>
             <RowDefinition Height="350*"/>
-            <RowDefinition Height="15"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         
         <DockPanel Grid.Row="0"
@@ -28,7 +28,7 @@
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button x:Name="AddBtn"
                        Width="180"
-                       Content="Добавить продукт"
+                       Content="Добавить партнера"
                        Margin="10,10"    
                        Click="AddBtn_Click"/>
                 <!--Collapsed - элемент не виден и не участвует в компоновке.-->
@@ -62,7 +62,9 @@
             
             <ListView x:Name="PartnerListView" Grid.Row="1" Grid.Column="1" 
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                      SelectionChanged="PartnerListView_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}">
+                      SelectionChanged="PartnerListView_SelectionChanged" 
+                      MouseDoubleClick="EditBtn_Click"
+                      d:ItemsSource="{d:SampleData ItemCount=5}">
                 <ListView.ItemContainerStyle>
                     <!--Стиль для контейнера (1 партнер)-->
                     <Style TargetType="ListViewItem"> 
@@ -113,6 +115,22 @@
                 </ListView.ItemTemplate>
 
             </ListView>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button x:Name="btnHistory"
+                    HorizontalAlignment="Left"
+                    Width="250"
+                    Margin="10 0"
+                    Click="btnHistory_Click"
+                    Visibility="Collapsed">
+                История реализации продукции
+            </Button>
+            <Button x:Name="btnClose"
+                    HorizontalAlignment="Right"
+                    Margin="10 0"
+                    Click="btnClose_Click">
+                Выход
+            </Button>
         </Grid>
     </Grid>
 </Window>

@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:DemoKystova"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <SolidColorBrush x:Key="AccentColor" Color="#67BA80"/>
+        <SolidColorBrush x:Key="SecondaryBgColor" Color="#F4E8D3"/>
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value="Segoe UI"/>
             <Setter Property="Background" Value ="#67BA80"/>

@@ -20,14 +20,17 @@ namespace DemoKystova.View
     public partial class AddEditPartnerView : Window
     {
         private Partner _newPartner;
-        private DemoEntities _context;
-        public AddEditPartnerView(Partner partner=null)
+        private Partner _selectedPartner;
+        private readonly DemoEntities _context;
+        public AddEditPartnerView(Partner partner = null)
         {
             InitializeComponent();
             _context = App.GetContext();
+            TypeComboBox.ItemsSource = new List<string>{"ЗАО", "ООО", "ПАО", "ОАО", "ЭУЭ"};
             if (partner != null)
             {
                 DataContext = partner;
+                _selectedPartner = partner;
                 return;
             }
             _newPartner = new Partner();
@@ -43,8 +46,17 @@ namespace DemoKystova.View
         {
             try
             {
-                if( _newPartner != null ) 
+                if( _newPartner != null )
+                {
+                    if (!IsCorrectPartner(_newPartner))
+                        throw new Exception();
                     _context.Partner.Add(_newPartner);
+                }
+                else
+                {
+                    if (!IsCorrectPartner(_selectedPartner))
+                        throw new Exception();
+                }
                 _context.SaveChanges();
                 MessageBox.Show("Успешно сохранено");
             }
@@ -54,10 +66,26 @@ namespace DemoKystova.View
             }
         }
 
+        private bool IsCorrectPartner(Partner partner)
+        {
+            if ( partner == null )
+                return false;
+            if (partner.type.Length > 10)
+                return false;
+            if (partner.name.Length > 50)
+                return false;
+            if (partner.director.Length > 50) 
+                return false;
+            if (partner.mail.Length > 50 || !partner.mail.Contains('@'))
+                return false;
+
+            return true;
+        }
+
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
             Name.Clear();
-            Type.Clear();
+            //Type.Clear();
             Rating.Clear();
             Address.Clear();
             Director.Clear();

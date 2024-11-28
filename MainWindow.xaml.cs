@@ -26,7 +26,6 @@ namespace DemoKystova
         public MainWindow()
         {
             InitializeComponent();
-
             // Заполнение ListView данными.
             UpdateListView(PartnerListView);
         }
@@ -61,8 +60,20 @@ namespace DemoKystova
             if (PartnerListView.SelectedItems.Count > 0)
             {
                 EditBtn.Visibility = Visibility.Visible;
+                btnHistory.Visibility = Visibility.Visible;
                 _partner = PartnerListView.SelectedItem as Partner;
             }
+        }
+
+        private void btnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            HistoryProductsSalesView HistoryWindow = new HistoryProductsSalesView(_partner);
+            HistoryWindow.ShowDialog();
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
