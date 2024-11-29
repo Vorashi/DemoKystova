@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         
         <DockPanel Grid.Row="0"
-           Background="#F4E8D3">
+           Background="{DynamicResource SecondaryBgColor}">
             <Image Source="Resources\Мастер пол.png"
                 DockPanel.Dock="Left"
                 Margin="10"
@@ -64,7 +64,8 @@
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                       SelectionChanged="PartnerListView_SelectionChanged" 
                       MouseDoubleClick="EditBtn_Click"
-                      d:ItemsSource="{d:SampleData ItemCount=5}">
+                      d:ItemsSource="{d:SampleData ItemCount=5}"
+                      Background="{DynamicResource SecondaryBgColor}">
                 <ListView.ItemContainerStyle>
                     <!--Стиль для контейнера (1 партнер)-->
                     <Style TargetType="ListViewItem"> 

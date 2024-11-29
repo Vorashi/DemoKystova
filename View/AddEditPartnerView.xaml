@@ -13,7 +13,7 @@
             <RowDefinition Height="*" MaxHeight="100"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0" Background="#F4E8D3">
+        <DockPanel Grid.Row="0" Background="{DynamicResource SecondaryBgColor}">
             <Image Source="\Resources\Мастер пол.png" 
                    DockPanel.Dock="Left" 
                    Margin="10" 
